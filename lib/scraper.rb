@@ -26,10 +26,10 @@ class Scraper
     html = open(profile_url)
     doc = Nokogiri::HTML(html)
   
-    twitter_url = nil
-    linkedin_url = nil
-    github_url = nil
-    blog_url = nil
+    # twitter_url = nil
+    # linkedin_url = nil
+    # github_url = nil
+    # blog_url = nil
     student_info = { }
     doc.css("div.social-icon-container a").each do |url|
       url = url.attr("href")
