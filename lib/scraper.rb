@@ -45,11 +45,11 @@ class Scraper
     bio = doc.css("div.description-holder p").text
     student_info = { }
       student_info[:twitter] = twitter_url if twitter_url
-      :linkedin => linkedin_url,
-      :github => github_url,
-      :blog => blog_url,
-      :profile_quote => profile_quote,
-      :bio => bio
+      student_info[:linkedin] = linkedin_url if linkedin_url
+      student_info[:github] = github_url if github_url
+      student_info[:blog] = blog_url if blog_url
+      student_info[:profile_quote] = profile_quote if profile_quote
+      student_info[:bio] = bio if bio
     student_info
   end   
     
