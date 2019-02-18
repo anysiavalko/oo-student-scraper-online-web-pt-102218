@@ -50,9 +50,6 @@ class Scraper
     student_info[:profile_quote] = profile_quote if profile_quote
     bio = doc.css("div.description-holder p").text
     student_info[:bio] = bio if bio 
-      
-      
-      
     student_info
   end   
     
