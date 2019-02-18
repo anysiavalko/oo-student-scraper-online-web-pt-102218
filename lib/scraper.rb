@@ -35,15 +35,15 @@ class Scraper
       url = url.attr("href")
       if url.include?("twitter")
         twitter_url = url
-        student_info[:twitter] = twitter_url if twitter_url
+        student_info[:twitter] = twitter_url
       elsif url.include?("linkedin")
         linkedin_url = url
-        student_info[:linkedin] = linkedin_url if linkedin_url
+        student_info[:linkedin] = linkedin_url
       elsif url.include?("github")
-        student_info[:github] = github_url if github_url
+        student_info[:github] = github_url
         github_url = url
       else blog_url = url
-        student_info[:blog] = blog_url if blog_url
+        student_info[:blog] = blog_url
       end  
     end
     profile_quote = doc.css("div.profile-quote").text
