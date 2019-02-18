@@ -40,8 +40,8 @@ class Scraper
         linkedin_url = url
         student_info[:linkedin] = linkedin_url if linkedin_url
       elsif url.include?("github")
+         github_url = url
         student_info[:github] = github_url if github_url
-        github_url = url
       else blog_url = url
         student_info[:blog] = blog_url if blog_url
       end  
