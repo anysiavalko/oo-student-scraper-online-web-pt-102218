@@ -26,32 +26,35 @@ class Scraper
     html = open(profile_url)
     doc = Nokogiri::HTML(html)
   
-  
-    twitter_url = nil 
-    linkedin_url = nil
-    github_url = nil
-    blog_url = nil
+    # twitter_url = nil
+    # linkedin_url = nil
+    # github_url = nil
+    # blog_url = nil
+    student_info = { }
     doc.css("div.social-icon-container a").each do |url|
       url = url.attr("href")
       if url.include?("twitter")
         twitter_url = url
+        student_info[:twitter] = twitter_url #if twitter_url
       elsif url.include?("linkedin")
         linkedin_url = url
+        student_info[:linkedin] = linkedin_url #if linkedin_url
       elsif url.include?("github")
-        github_url = url
+         github_url = url
+        student_info[:github] = github_url #if github_url
       else blog_url = url
+        student_info[:blog] = blog_url #if blog_url
       end  
     end
     profile_quote = doc.css("div.profile-quote").text
+    student_info[:profile_quote] = profile_quote if profile_quote
     bio = doc.css("div.description-holder p").text
-    student_info = {:twitter => twitter_url, :linkedin => linkedin_url, :github => github_url, :blog => blog_url, :profile_quote => profile_quote, :bio => bio}
+    student_info[:bio] = bio if bio 
     student_info
   end   
     
+  #First, the url variables weren't being recognized outside of the iteration, so I assigned them to nil beforehand. But then nil was showing up as values in the hash, so I assigned the key value pairs on separate lines with if statements. But when I moved the key value assignments into the iteration, I didn't need the nils anymore, so then I didn't need the if statements anymore.
     
     
-    
-  
-
 end
 
