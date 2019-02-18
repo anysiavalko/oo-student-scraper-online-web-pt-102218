@@ -56,6 +56,5 @@ class Scraper
   #First, the url variables weren't being recognized outside of the iteration, so I assigned them to nil beforehand. But then nil was showing up as values in the hash, so I assigned the key value pairs on separate lines with if statements. But when I moved the key value assignments into the iteration, I didn't need the nils anymore, so then I didn't need the if statements anymore.
     
     
-    
 end
 
