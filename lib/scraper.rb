@@ -30,6 +30,7 @@ class Scraper
     linkedin_url = nil
     github_url = nil
     blog_url = nil
+    student_info = { }
     doc.css("div.social-icon-container a").each do |url|
       url = url.attr("href")
       if url.include?("twitter")
@@ -43,8 +44,7 @@ class Scraper
     end
     profile_quote = doc.css("div.profile-quote").text
     bio = doc.css("div.description-holder p").text
-    student_info = { }
-      student_info[:twitter] = twitter_url if twitter_url
+      
       student_info[:linkedin] = linkedin_url if linkedin_url
       student_info[:github] = github_url if github_url
       student_info[:blog] = blog_url if blog_url
