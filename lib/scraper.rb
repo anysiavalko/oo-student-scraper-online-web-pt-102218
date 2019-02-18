@@ -43,14 +43,13 @@ class Scraper
     end
     profile_quote = doc.css("div.profile-quote").text
     bio = doc.css("div.description-holder p").text
-    student_info = {
-      :twitter => twitter_url if twitter_url,
+    student_info = { }
+      student_info[:twitter] = twitter_url if twitter_url,
       :linkedin => linkedin_url,
       :github => github_url,
       :blog => blog_url,
       :profile_quote => profile_quote,
       :bio => bio
-    }
     student_info
   end   
     
